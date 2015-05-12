@@ -1,0 +1,9 @@
+C:\Users\phoncey\Documents\amber\Binoculars\Binoculars\obj\x86\Debug\Binoculars.Form1.resources
+C:\Users\phoncey\Documents\amber\Binoculars\Binoculars\obj\x86\Debug\Binoculars.Properties.Resources.resources
+C:\Users\phoncey\Documents\amber\Binoculars\Binoculars\obj\x86\Debug\Binoculars.csproj.GenerateResource.Cache
+C:\Users\phoncey\Documents\amber\Binoculars\Binoculars\bin\Debug\Binoculars.exe
+C:\Users\phoncey\Documents\amber\Binoculars\Binoculars\bin\Debug\Binoculars.pdb
+C:\Users\phoncey\Documents\amber\Binoculars\Binoculars\obj\x86\Debug\Binoculars.exe
+C:\Users\phoncey\Documents\amber\Binoculars\Binoculars\obj\x86\Debug\Binoculars.pdb
+C:\Users\phoncey\Documents\Binoculars\Binoculars\Binoculars\obj\x86\Debug\Binoculars.exe
+C:\Users\phoncey\Documents\Binoculars\Binoculars\Binoculars\obj\x86\Debug\Binoculars.pdb
