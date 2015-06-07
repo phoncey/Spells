@@ -58,7 +58,6 @@ namespace Binoculars
               {
                   string curItem;
                   curItem = listBox1.SelectedItem.ToString();
-                  //MessageBox.Show("Hello! "+curItem+" was selected!");
               }
               catch (NullReferenceException) {}
 
@@ -92,7 +91,6 @@ namespace Binoculars
            foreach (string f in this.files)
            {
               if (Regex.IsMatch(f, textBox1.Text, RegexOptions.IgnoreCase))
-              //if(f.Contains(textBox1.Text))
               {
                  listBox1.Items.Add(f);
               }
@@ -144,7 +142,6 @@ namespace Binoculars
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string dirName = System.IO.Path.GetDirectoryName(listBox1.Items[contextMenuSelectedIndex].ToString());
-            //MessageBox.Show("Hello! " + dirName + " was selected!");
             dirName.Replace(@"\", @"\\");
             Process process = new Process();
             ProcessStartInfo startInfo = new ProcessStartInfo("C:\\Windows\\explorer.exe ", dirName);
@@ -157,7 +154,6 @@ namespace Binoculars
             if (e.Button == MouseButtons.Right)
             {
                 contextMenuSelectedIndex = listBox1.IndexFromPoint(e.Location);
-                //MessageBox.Show("Hello! " + contextMenuSelectedIndex + " was selected! The item is" + listBox1.Items[contextMenuSelectedIndex].ToString());
                 if (contextMenuSelectedIndex == -1)
                 {
                     return;
