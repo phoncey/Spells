@@ -15,6 +15,7 @@ namespace Binoculars
     public partial class Form1 : Form
     {
        string[] files;
+       int contextMenuSelectedIndex = 1;
        List<string> indexes = new List<string>();
         string mountPath = "C:\\Temp\\";
        string directoryPath = "C:\\Temp\\";
@@ -47,7 +48,7 @@ namespace Binoculars
 
         private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-           string curItem;
+           
 
            // Since it's set to open files on a single click, this try/catch makes sure you've actually
            // selected something before trying to open it.
@@ -55,11 +56,8 @@ namespace Binoculars
            {
               try
               {
-                 curItem = listBox1.SelectedItem.ToString();
-                 Process process = new Process();
-                 ProcessStartInfo startInfo = new ProcessStartInfo(visualStudioPath, "/edit " + curItem);
-                 process.StartInfo = startInfo;
-                 process.Start();
+                  string curItem;
+                  curItem = listBox1.SelectedItem.ToString();
               }
               catch (NullReferenceException) {}
 
@@ -93,7 +91,6 @@ namespace Binoculars
            foreach (string f in this.files)
            {
               if (Regex.IsMatch(f, textBox1.Text, RegexOptions.IgnoreCase))
-              //if(f.Contains(textBox1.Text))
               {
                  listBox1.Items.Add(f);
               }
@@ -140,6 +137,38 @@ namespace Binoculars
             updateDirectory();
             UpdateLabel();
             updateList();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string dirName = System.IO.Path.GetDirectoryName(listBox1.Items[contextMenuSelectedIndex].ToString());
+            dirName.Replace(@"\", @"\\");
+            Process process = new Process();
+            ProcessStartInfo startInfo = new ProcessStartInfo("C:\\Windows\\explorer.exe ", dirName);
+            process.StartInfo = startInfo;
+            process.Start();
+        }
+
+        private void listBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                contextMenuSelectedIndex = listBox1.IndexFromPoint(e.Location);
+                if (contextMenuSelectedIndex == -1)
+                {
+                    return;
+                }
+            }
+            else
+            {
+                string curItem;
+                curItem = listBox1.SelectedItem.ToString();
+                Process process = new Process();
+                ProcessStartInfo startInfo = new ProcessStartInfo(visualStudioPath, "/edit " + curItem);
+                process.StartInfo = startInfo;
+                process.Start();
+            }
+
         }
     }
 }
